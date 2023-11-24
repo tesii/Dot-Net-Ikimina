@@ -1,0 +1,26 @@
+﻿@page
+@model Ikimina.Pages.User.UserDashboardModel
+@{
+}
+
+<h2>User Dashboard</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+
+<div>
+    <!-- Add other content of the user dashboard here -->
+
+    <div class="row mb-3">
+        <div class="col-sm-6">
+            <a class="btn btn-primary" href="/User/Withdraw">Withdraw</a>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-success" href="/User/Deposit">Deposit</a>
+        </div>
+    </div>
+</div>

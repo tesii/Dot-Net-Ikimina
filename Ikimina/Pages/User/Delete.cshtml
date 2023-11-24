@@ -1,0 +1,28 @@
+﻿@page
+
+@using System.Data.SqlClient;
+
+@{
+    // Assuming you have the UserID in the query string
+    String userID = Request.Query["UserID"];
+    try
+    {
+        string conString = "Data Source=DESKTOP-SIGEG94;Initial Catalog=IkiminaCyacu;Integrated Security=True";
+        using (SqlConnection con = new SqlConnection(conString))
+        {
+            con.Open();
+            string sqlQuery = "DELETE FROM User_table WHERE UserID = @UserID";
+            using (SqlCommand cmd = new SqlCommand(sqlQuery, con))
+            {
+                cmd.Parameters.AddWithValue("@UserID", userID);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error: " + ex.Message);
+    }
+    Response.Redirect("/User/Index"); // Assuming you have an index page for users
+}

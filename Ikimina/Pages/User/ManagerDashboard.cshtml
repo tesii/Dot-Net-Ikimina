@@ -1,0 +1,29 @@
+﻿@page
+@model Ikimina.Pages.User.ManagerDashboardModel
+@{
+}
+
+<h2>Manager Dashboard</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+
+<div>
+    <!-- Add other content of the manager dashboard here -->
+
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            <a class="btn btn-primary" href="/User/Create">Register Members</a>
+        </div>
+        <div class="col-sm-4">
+            <a class="btn btn-success" href="/User/ApproveWithdraw">Approve Withdraw</a>
+        </div>
+        <div class="col-sm-4">
+            <a class="btn btn-info" href="/User/ViewDepositsWithdrawals">View Deposits/Withdrawals</a>
+        </div>
+    </div>
+</div>

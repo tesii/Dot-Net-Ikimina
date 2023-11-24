@@ -1,0 +1,37 @@
+﻿@page
+@model Ikimina.Pages.User.IndexModel
+@{
+}
+<br />
+<h2>List of Users</h2>
+<a class='btn btn-primary btn-sm' href='/User/Create'>New User</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>USERNAME</th>
+            <th>EMAIL</th>
+            <th>PASSWORD</th>
+            <th>REGISTRATION DATE</th>
+            <th>ROLE</th>
+            <th>ACTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listUsers)
+        {
+            <tr>
+                <td>@item.UserID</td>
+                <td>@item.Username</td>
+                <td>@item.Email</td>
+                <td>@item.Password</td>
+                <td>@item.RegistrationDate</td>
+                <td>@item.Role</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/User/Edit?UserID=@item.UserID">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/User/Delete?UserID=@item.UserID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
