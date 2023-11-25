@@ -1,0 +1,73 @@
+@page
+@model Ikimina.Pages.User.DepositFormModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include your head content, such as meta tags and styles -->
+</head>
+<body>
+    <div class="container">
+        <img src="~/images/cash.jpeg" alt="Ikimina Logo" style="max-height: 100px; max-width: 100px;" />
+        <div class="form-container">
+            <h2>Deposit</h2>
+            <form method="POST">
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">User ID</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="userID" value="@Model.transaction.UserID" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Amount</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="amount" value="@Model.transaction.Amount" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="TransactionType">Transaction Type</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="TransactionType" value="DEPOSIT" />
+                    </div>
+                    
+                </div>
+
+                <div class="row mb-3">
+                    <!-- Display the current Status -->
+                    <label class="col-sm-3 col-form-label">Status</label>
+                    <div class="col-sm-9">
+                        <span class="form-control">@Model.Status</span>
+                    </div>
+                </div>
+                <!-- Add other fields as needed -->
+                @if (Model.errorMessage.Length > 0)
+                {
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>@Model.errorMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                    </div>
+                }
+
+                <div class="row mb-3">
+                    <div class="offset-sm-3 col-sm-9 d-grid">
+                        <button type="submit" class="btn btn-primary">Make Deposit</button>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="offset-sm-3 col-sm-9 d-grid">
+                        <!-- Add Withdraw button that redirects to WithdrawForm page -->
+                        <a class="btn btn-danger" href="/User/Withdraw">Withdraw</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include your script tags and closing body/html tags -->
+</body>
+</html>
