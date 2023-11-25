@@ -76,11 +76,20 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">Role</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name="role" value="@Model.user.Role" />
-                    </div>
-                </div>
+     <label for="fullname">Role</label>
+     <select class="form-control form-select mt-2" name="Role">
+         @if (Model.user.Role != null && Model.user.Role.Equals("ADMIN"))
+         {
+             <option value="manager">manager</option>
+             <option value="user" selected>user</option>
+         }
+         else
+         {
+             <option value="manager" selected>manager</option>
+             <option value="user">user</option>
+         }
+     </select>
+ </div>
 
                 @if (Model.errorMessage.Length > 0)
                 {
